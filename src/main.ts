@@ -1,4 +1,3 @@
-import { KaboomCtx } from "kaboom";
 import { makeBirbEnemy, makeBurnyEnemy, makePlayer, makeScaredyEnemy, setControls } from "./entities";
 import { k } from "./kaboomCtx";
 import { makeMap } from "./utils";
@@ -28,7 +27,7 @@ async function gameSetup() {
     );
 
     //level 1 scene
-    k.scene("level-1", () => {
+    k.scene("level-1", async () => {
         //sets background
         k.setGravity(2100);
         k.add([
@@ -79,6 +78,8 @@ async function gameSetup() {
         }
 
     });
+
+    k.scene("end", () => {});
 
     k.go("level-1");
 }
